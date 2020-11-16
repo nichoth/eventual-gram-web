@@ -4,7 +4,10 @@
   "version": "0.0.0",
   "main": "index.js",
   "scripts": {
-    "build": "cp src/index.html public",
+    "start": "npm run build && ecstatic public",
+    "sass-watch": "node-sass --watch src/style.scss --source-map-embed public/style.css",
+    "build-css": "node-sass --output-style=compressed src/style.scss > public/style.css",
+    "build": "cp src/index.html public && npm run build-css",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
